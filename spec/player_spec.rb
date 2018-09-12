@@ -53,12 +53,12 @@ describe Player do
         expect(player.hand.count).to eq 3
       end
 
-      it 'looks for 4 cards of same rank and adds the rank to the sets array' do
+      it 'removes 4 cards of same rank and adds the rank to the sets array' do
         other_aces = [PlayingCard.new(rank: 'A', suit: 'Clubs'), PlayingCard.new(rank: 'A', suit: 'Diamonds')]
         player.take(other_aces)
         player.check_for_sets
         expect(player.hand.count).to eq(1)
-        expect(player.matches).to eq ['A']
+        expect(player.sets).to eq ['A']
       end
     end
   end

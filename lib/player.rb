@@ -1,10 +1,10 @@
 class Player
-  attr_reader :name, :hand, :matches
+  attr_reader :name, :hand, :sets
 
   def initialize(name: 'John')
     @name = name
     @hand = []
-    @matches = []
+    @sets = []
   end
 
   def take(cards)
@@ -20,7 +20,8 @@ class Player
   def check_for_sets
     hand.each do |card_to_match|
       return unless hand.count { |card| card.rank == card_to_match.rank } == 4
-      matches.push(card_to_match.rank)
+
+      sets.push(card_to_match.rank)
       hand.reject! { |card| card.rank == card_to_match.rank }
     end
   end
