@@ -31,16 +31,35 @@ describe Player do
     end
   end
 
-  describe '#give' do
-    it 'returns the card(s) of a given rank from the players hand as an array' do
+  context 'dealing with multiple cards' do
+    before :each do
       player.take(cards)
-      expect(player.give('A')).to eq([card1, card2])
     end
 
-    it 'removes the cards of a given rank from the players hand' do
-      player.take(cards)
-      player.give('A')
-      expect(player.hand).to eq [card3]
+    describe '#give' do
+      it 'returns the card(s) of a given rank from the players hand as an array' do
+        expect(player.give('A')).to eq([card1, card2])
+      end
+
+      it 'removes the cards of a given rank from the players hand' do
+        player.give('A')
+        expect(player.hand).to eq [card3]
+      end
+    end
+
+    describe '#check_for_sets' do
+      it 'will do nothing when there are not 4 of a rank in the players hand' do
+        player.check_for_sets
+        expect(player.hand.count).to eq 3
+      end
+
+      it 'looks for 4 cards of same rank and adds the rank to the sets array' do
+        other_aces = [PlayingCard.new(rank: 'A', suit: 'Clubs'), PlayingCard.new(rank: 'A', suit: 'Diamonds')]
+        player.take(other_aces)
+        player.check_for_sets
+        expect(player.hand.count).to eq(1)
+        expect(player.matches).to eq ['A']
+      end
     end
   end
 end
