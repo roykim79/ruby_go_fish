@@ -3,6 +3,9 @@ require 'card_deck'
 
 describe CardDeck do
   let(:deck) { CardDeck.new }
+  let(:dealt_card) { deck.deal }
+  let(:deck2) { CardDeck.new }
+  let(:dealt_card2) { deck2.deal }
 
   describe '#initialize' do
     it 'creates 52 cards' do
@@ -11,10 +14,6 @@ describe CardDeck do
   end
 
   describe '#deal' do
-    let(:deck2) { CardDeck.new }
-    let(:dealt_card) { deck.deal }
-    let(:dealt_card2) { deck2.deal }
-
     it 'takes a card from the deck' do
       deck.deal
       expect(deck.cards.count).to eq 51
@@ -22,6 +21,13 @@ describe CardDeck do
 
     it 'returns an instance of PlayingCard' do
       expect(dealt_card).to be_an_instance_of PlayingCard
+    end
+  end
+
+  describe '#shuffle' do
+    it 'randomly changes the order of the deck' do
+      deck.shuffle
+      expect(dealt_card.value).not_to eq(dealt_card2.value)
     end
   end
 end
