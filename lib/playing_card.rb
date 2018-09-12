@@ -8,4 +8,5 @@ class PlayingCard
 
   def value
     "#{rank} of #{suit}"
+  end
 end
