@@ -9,4 +9,8 @@ class Player
   def take(cards)
     cards.each { |card| hand.push(card)  }
   end
+
+  def give(rank)
+    hand.select! { |card| card.rank == rank }
+  end
 end
