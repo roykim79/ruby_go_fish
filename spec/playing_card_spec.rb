@@ -15,4 +15,10 @@ describe PlayingCard do
       expect(card.suit).to eq 'Spades'
     end
   end
+
+  describe '#value' do
+    it 'returns the rank and suit of a card as a string' do
+      expect(card.value).to eq 'A of Spades'
+    end
+  end
 end

@@ -5,4 +5,7 @@ class PlayingCard
     @rank = rank
     @suit = suit
   end
+
+  def value
+    "#{rank} of #{suit}"
 end
