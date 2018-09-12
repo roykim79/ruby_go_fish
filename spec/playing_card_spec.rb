@@ -9,4 +9,10 @@ describe PlayingCard do
       expect(card.rank).to eq 'A'
     end
   end
+
+  describe '#suit' do
+    it 'returns the suit of the card' do
+      expect(card.suit).to eq 'Spades'
+    end
+  end
 end
