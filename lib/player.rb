@@ -19,10 +19,9 @@ class Player
 
   def check_for_sets
     hand.each do |card_to_match|
-      if hand.count { |card| card.rank == card_to_match.rank } == 4
-        matches.push(card_to_match.rank)
-        hand.reject! { |card| card.rank == card_to_match.rank }
-      end
+      return unless hand.count { |card| card.rank == card_to_match.rank } == 4
+      matches.push(card_to_match.rank)
+      hand.reject! { |card| card.rank == card_to_match.rank }
     end
   end
 end
