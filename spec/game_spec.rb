@@ -7,8 +7,14 @@ describe Game do
   context 'initial game set up' do
     describe '#initialize' do
       it 'creates 2 new players by default' do
-        expect(game.player1).not_to be_nil
-        expect(game.player2).not_to be_nil
+        expect(game.players.count).to eq 2
+      end
+    end
+
+    describe '#start' do
+      it 'it deals 7 cards to each player' do
+        game.start
+        game.players.each { |player| expect(player.hand.count).to eq 7 }
       end
     end
   end

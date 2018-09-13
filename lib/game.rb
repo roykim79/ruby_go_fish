@@ -1,8 +1,15 @@
 class Game
-  attr_reader :player1, :player2
+  attr_accessor :players
 
-  def initialize(player1 = Player.new, player2 = Player.new)
-    @player1 = player1
-    @player2 = player2
+  def initialize(players = [Player.new, Player.new])
+    @players = players
+  end
+
+  def start
+    deck = CardDeck.new
+    deck.shuffle
+    7.times do
+      players.each { |player| player.take([deck.deal]) }
+    end
   end
 end
