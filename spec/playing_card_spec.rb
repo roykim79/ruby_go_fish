@@ -2,7 +2,7 @@ require 'rspec'
 require 'playing_card'
 
 describe PlayingCard do
-  let(:card) { PlayingCard.new(rank: 'A', suit: 'Spades') }
+  let(:card) { PlayingCard.new('A', 'Spades') }
 
   describe '#rank' do
     it 'returns the rank of the card' do

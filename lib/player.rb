@@ -1,7 +1,7 @@
 class Player
   attr_reader :name, :hand, :sets
 
-  def initialize(name: 'John')
+  def initialize(name = 'John')
     @name = name
     @hand = []
     @sets = []
@@ -25,4 +25,5 @@ class Player
       hand.reject! { |card| card.rank == card_to_match.rank }
     end
   end
+  
 end

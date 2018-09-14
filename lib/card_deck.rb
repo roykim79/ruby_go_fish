@@ -8,7 +8,7 @@ class CardDeck
     @cards = []
     RANKS.each do |rank|
       SUITS.each do |suit|
-        @cards.push(PlayingCard.new({rank: rank, suit: suit}))
+        @cards.push(PlayingCard.new(rank, suit))
       end
     end
   end

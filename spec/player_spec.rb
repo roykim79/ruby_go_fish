@@ -3,10 +3,10 @@ require 'player'
 require 'playing_card'
 
 describe Player do
-  let(:player) { Player.new(name: 'Bob') }
-  let(:card1) { PlayingCard.new(rank: 'A', suit: 'Spades') }
-  let(:card2) { PlayingCard.new(rank: 'A', suit: 'Hearts') }
-  let(:card3) { PlayingCard.new(rank: 'K', suit: 'Clubs') }
+  let(:player) { Player.new('Bob') }
+  let(:card1) { PlayingCard.new('A', 'Spades') }
+  let(:card2) { PlayingCard.new('A', 'Hearts') }
+  let(:card3) { PlayingCard.new('K', 'Clubs') }
   let(:cards) { [card1, card2, card3] }
 
   describe '#initialize' do
@@ -54,7 +54,7 @@ describe Player do
       end
 
       it 'removes 4 cards of same rank and adds the rank to the sets array' do
-        other_aces = [PlayingCard.new(rank: 'A', suit: 'Clubs'), PlayingCard.new(rank: 'A', suit: 'Diamonds')]
+        other_aces = [PlayingCard.new('A', 'Clubs'), PlayingCard.new('A', 'Diamonds')]
         player.take(other_aces)
         player.check_for_sets
         expect(player.hand.count).to eq(1)
