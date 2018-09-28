@@ -1,0 +1,48 @@
+<ul>
+  <% pending_games.each do |count, players| %>
+    <li>
+      <span><%= count %> Player</span>
+      <span><%= players.count %>/<%= count %></span>
+    </li>
+  <% end %>
+</ul>
+
+
+<div class="container">
+  <h1 class="app-header">Lobby</h1>
+  <div class="game-menu">
+    <div class="game-menu-option">
+      <a href="#">
+        <span>2 Player</span>
+        <span>1/2</span>
+      </a>
+    </div>
+    <div class="game-menu-option">
+      <a href="#">
+        <span>3 Player</span>
+        <span>2/3</span>
+      </a>
+    </div>
+    <div class="game-menu-option">
+      <a href="#">
+        <span>4 Player</span>
+        <span>2/4</span>
+      </a>
+    </div>
+    <div class="game-menu-option">
+      <a href="#">
+        <span>5 Player</span>
+        <span>3/5</span>
+      </a>
+    </div>
+    <ul>
+      <% players.each do |player| %>
+        <% if player == current_player %>
+          <li class="a"><%= player.name %>/<%= player.name %></li>
+        <% else %>
+          <li class="a"><%= player.name %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

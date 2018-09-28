@@ -1,0 +1,9 @@
+.container
+  h1.app-header Lobby
+  form action="/waiting" method="get"
+    ul.game-menu.flex-col
+      - pending_games.each do |count, players|
+        li.game-menu-option
+          button.flex-row type="submit" name="player-count" value="#{count}"
+            span #{count} Players
+            span #{players.count}/#{count}

@@ -30,4 +30,10 @@ describe CardDeck do
       expect(dealt_card.value).not_to eq(dealt_card2.value)
     end
   end
+
+  describe '#count' do
+    it 'returns the number of cards remaining in the the cards list' do
+      expect(deck.count).to be 52
+    end
+  end
 end

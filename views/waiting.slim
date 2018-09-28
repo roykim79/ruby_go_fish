@@ -1,0 +1,26 @@
+- player5 = other_players[0]
+- player1 = user_player
+
+.container
+  .row.row--top
+    .back-to-lobby.fb100
+      a href="/lobby"  Lobby
+    .player.fg1
+    .player.fg1
+    .quit-game.ta-r.fb100 X
+  .row.row--center
+    .player
+    .table
+      .message Waiting
+    .player.player-5-5
+      .player-info
+        .name #{player5.name}
+        .set-count Sets #{player5.set_count}
+  .row.row--bottom
+    .player.first-player.player-1-5
+      .player-info.mt-8
+        .name #{player1.name}
+        .set-count Sets #{player1.set_count}
+    - unless joined
+      form action="/join" method="post"
+        button.join-game type="submit" name="player-count" value="#{count}" Join Game

@@ -1,0 +1,49 @@
+- player5 = other_players[0]
+- player1 = user_player
+
+.container
+  .row.row--top
+    .back-to-lobby.fb100
+      a href="/lobby" Lobby
+    .player.fg1
+    .player.fg1
+    .quit-game.ta-r.fb100 X
+  .row.row--center
+    .player
+      .player-hand
+      .player-info
+    .table
+      .deck
+        - 8.times do
+          .card.stacked.card-back
+    - if player5 == game.current_player
+      .player.player-5-5.current-player
+        .player-hand
+          - player5.hand.each do |card|
+            .card.stacked.card-back
+          .card-count #{player5.card_count}
+        .player-info
+          .name #{player5.name}
+          .set-count Sets #{player5.set_count}
+    - else
+      .player.player-5-5
+        .player-hand
+          - player5.hand.each do |card|
+            .card.stacked.card-back
+          .card-count #{player5.card_count}
+        .player-info
+          .name #{player5.name}
+          .set-count Sets #{player5.set_count}
+  .row.row--bottom
+    .player.first-player.player-1-5
+      .visible-player-hand.mb-8
+        - player1.hand.each do |card|
+          visible-card #{card.rank}
+      .player-info.mt-8
+        .name #{player1.name}
+        .set-count Sets #{player1.set_count}
+  / .modal
+    .modal__content
+      span.modal-text Are you sure you want to quit?
+      button name="button" type="button"  Yes
+      button name="button" type="button"  No
